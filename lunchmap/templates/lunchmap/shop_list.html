@@ -1,0 +1,28 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+<h1>お店一覧</h1>
+<form action="" method="get">
+  <input name="query" value="{{ request.GET.query }}" type="text">
+  <button type="submit" class="btn btn-primary">検索する</button>
+</form>
+<table class='table' style="background-color: white;margin-top: 20px;">
+    <tr>
+        <th>カテゴリ</th><th>店名</th><th>おすすめメニュー</th><th>投稿者</th>
+    </tr>
+    {% for shop in object_list %}
+
+    <tr>
+        <td>{{ shop.category.name }}</td>
+        <td><a href='{% url "lunchmap:detail" shop.pk %}'>{{ shop.name }}</a></td>
+        <td>{{ shop.favorite_menu }}</td>
+        <td>{{ shop.author.first_name }}</td>
+    </tr>
+    {% endfor %}
+    {% if user.is_authenticated %}
+        <div>
+          <a href='{% url "lunchmap:create" %}'>新しいお店</a>
+        </div>
+    {% endif %}
+</table>
+{% endblock %}

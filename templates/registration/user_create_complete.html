@@ -1,0 +1,8 @@
+{% extends '../layout.html' %}
+{% block content %}
+<p style="background-color: white; border-radius: 20px;padding: 30px 10% 30px 10%;margin-top: 50px;">
+    本登録が完了しました。<br>
+    登録されたメールアドレスとパスワードでログインしてください。<br>
+</p>
+<a class="btn btn-primary btn-lg" href="{% url 'login' %}">ログイン</a>
+{% endblock %}

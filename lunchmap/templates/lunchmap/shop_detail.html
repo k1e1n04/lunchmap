@@ -1,0 +1,149 @@
+{% extends '../layout.html' %}
+{% block content %}
+
+  <h1>{{ shop.name }}</h1>
+  <div class="detail-container">
+    <h2>ハコから{{ shop.length }}分</h2>
+    <b>評価</b>
+    <h2>
+      <span class="star">
+        {% if avg_rate == 5 %}
+          ☆☆☆☆☆
+        {% elif avg_rate == 4 %}
+          ☆☆☆☆
+        {% elif avg_rate == 3 %}
+          ☆☆☆
+        {% elif avg_rate == 2 %}
+          ☆☆
+        {% elif avg_rate.score == 1 %}
+          ☆
+        {% endif %}
+      </span>
+      {{avg_rate}}
+    </h2>
+    <b>提供スピード</b>
+    <h2>
+      <span class="star">
+        {% if avg_speed == 5 %}
+          ☆☆☆☆☆
+        {% elif avg_speed == 4 %}
+          ☆☆☆☆
+        {% elif avg_speed == 3 %}
+          ☆☆☆
+        {% elif avg_speed == 2 %}
+          ☆☆
+        {% elif avg_speed.score == 1 %}
+          ☆
+        {% endif %}
+      </span>
+      {{avg_speed}}
+    </h2>
+    <iframe id='map'
+      src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBSDVIq59foM0tOQlW2XI3OHHmna4dwcb0&amp;q={{ shop.address }}'
+      width='80%'
+      height='320'
+      frameborder='0'>
+      </iframe>
+    <table class='table' rules="all" style="background-color: white;margin-top: 20px; border: 1px solid black;width: 80%;">
+      <tr style="background-color: #F1F1F1;">
+        <th>項目</th><th>内容</th>
+      </tr>
+      <tr>
+        <td>ジャンル</td><td>{{ shop.category.name }}</td>
+      </tr>
+      <tr>
+        <td>住所</td><td>{{ shop.address }}</td>
+      </tr>
+      <tr>
+        <td>おすすめメニュー</td><td>{{ shop.favorite_menu }}</td>
+      </tr>
+      <tr>
+        <td>合宿のお昼あり？</td><td>{{ shop.in_camp}}</td>
+      </tr>
+    </table>
+      
+    <div>
+  </div>
+    <a href='/'>一覧</a>
+    {% if request.user.id == object.author_id %}
+        | <a href='{% url "lunchmap:update" shop.pk %}'>編集</a>
+        | <a href='{% url "lunchmap:delete" shop.pk %}'>削除</a>
+    {% endif %}
+    {% if review_form != nill %}
+    <div>
+      <h1 class="text-secondary m-2">レビューを書く</h1>
+        <form action='{% url "lunchmap:review_create" %}' method='post' class='form'>
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-6" style="margin: 0 auto;">
+                    <p>評価</p>
+                    {{ review_form.score }}
+                    <br>
+                    <p>提供スピード</p>
+                    {{ review_form.speed }}
+                    <br>
+                    <p>タイトル</p>
+                    {{ review_form.title }}
+                    <br>
+                    <p>レビュー</p>
+                    {{ review_form.review }}
+                    <div style="display: none;">
+                      {{ review_form.shop}}
+                    </div>
+                    <br>
+                    <input value="投稿する" type="submit" value="POST" class="btn btn-primary btn-lg btn-block col-4" style="margin: 0 auto;">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <br>
+            {% endif %}
+            <h1>レビュー</h1>
+            <div class="reviews-container">
+              {% for shop_review in reviews %}
+                <div class="review" style="border: 1px solid darkgray;">
+                  <p style="margin-top: 7px;">
+                    {{ shop_review.user.first_name }}　　
+                    <b style="font-size: 18px;">{{ shop_review.title }}</b>
+                  </p>
+                  <p>
+                    {{ shop_review.review }}
+                  </p>
+                  <p>
+                    評価：{{ shop_review.score }}
+                    <span class="star">
+                      {% if shop_review.score == 5 %}
+                        ☆☆☆☆☆
+                      {% elif shop_review.score == 4 %}
+                        ☆☆☆☆
+                      {% elif shop_review.score == 3 %}
+                        ☆☆☆
+                      {% elif shop_review.score == 2 %}
+                        ☆☆
+                      {% elif shop_review.score == 1 %}
+                        ☆☆☆
+                      {% endif %}
+                    </span>
+                  </p>
+                  <p>
+                    提供スピード：{{ shop_review.speed }}
+                    <span class="star">
+                      {% if shop_review.speed == 5 %}
+                        ☆☆☆☆☆
+                      {% elif shop_review.speed == 4 %}
+                        ☆☆☆☆
+                      {% elif shop_review.speed == 3 %}
+                        ☆☆☆
+                      {% elif shop_review.speed == 2 %}
+                        ☆☆
+                      {% elif shop_review.speed == 1 %}
+                        ☆☆☆
+                      {% endif %}
+                    </span>
+                  </p>
+                  <a href="{% url 'lunchmap:review_delete' shop_review.id %}">削除</a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+{% endblock %}

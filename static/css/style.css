@@ -1,0 +1,107 @@
+body{
+  background-color: #F1F1F1;
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+h1{
+  margin-top: 50px;
+  font-size:28px;
+  font-weight: bold;
+}
+
+textarea{
+  width: 100%;
+}
+
+table{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.card{
+  margin: 50px auto 0 auto;
+  background-color: #FAF9F9;
+}
+
+.sign_up{
+  margin: 20px auto 0 auto;
+}
+
+button{
+  margin: 0 auto;
+}
+
+nav{
+  position: relative;
+}
+
+.nav{
+  font-size: 28px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+nav ul{
+  padding: 0;
+  left:70% ;
+  position: absolute;
+}
+
+
+nav a{
+  font-weight: bold;
+  color: #53d8cf;
+}
+
+nav li{
+  display: inline;
+  font-weight: bold;
+  color: #53d8cf;
+}
+
+nav ul{
+  width: 30%;
+}
+
+nav a:hover{
+  text-decoration: none;
+  color: #00ffee;
+}
+
+.detail-container{
+  padding-top:20px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.row{
+  width: 100%;
+  margin-left: 0;
+}
+
+
+.review{
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid darkgray;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.review p{
+  text-align: left;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.star{
+  color: rgb(245, 219, 71);
+}

@@ -1,0 +1,18 @@
+{% extends '../layout.html' %}
+{% block content %}
+{% load bootstrap4 %}
+<h1>お店情報の{{ object|yesno:'更新,作成'}}</h1>
+
+<form action='' method='post'>{% csrf_token %}
+  <div class="card col-6">
+    <div class="card-body">
+      {% bootstrap_form form layout="vertical" %}
+        <button type='submit' class='submit btn btn-primary btn-lg btn-block col-4'>{{ object|yesno:'更新,作成'}}</button>
+    </div>
+  </div>
+</form>
+<div style="margin-bottom:40px;">
+    <a href='JavaScript:history.back()'>&lt; 戻る</a>
+</div>
+
+{% endblock %}

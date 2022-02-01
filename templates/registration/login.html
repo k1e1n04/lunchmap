@@ -1,0 +1,36 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+{% load bootstrap4 %}
+<section class='common-form'>
+  <div class="card col-6">
+    <div class="card-body">
+      {% if form.errors %}
+          <p class='error-msg'>Your username and password didn't match. Please try again.</p>
+      {% endif %}
+
+      {% if next %}
+          {% if user.is_authenticated %}
+              <p class='error-msg'>Your account doesn't have access to this page. To proceed,
+              please login with an account that has access.</p>
+          {% else %}
+              <p class='error-msg'>Please login to see this page.</p>
+          {% endif %}
+      {% endif %}
+
+      <form action='{% url "login" %}' method='post'>
+          {% csrf_token %}
+          <input type='hidden' name='next' value='{{ next }}'/>
+          <br>
+          {% bootstrap_form form layout="vertical" %}
+          <button type='submit' class="btn btn-primary btn-lg btn-block col-4">ログイン
+          </button>
+      </form>
+      <br>
+    </div>
+  </div>
+  <div class="sign_up col-6">
+    <a href="{% url 'accounts:user_create' %}" >会員登録</a>
+  </div>
+</section>
+{% endblock %}
