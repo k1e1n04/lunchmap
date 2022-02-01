@@ -18,6 +18,7 @@ pytz==2021.3
 six==1.16.0
 soupsieve==2.3.1
 sqlparse==0.4.2
+Tcl==0.2
 virtualenv==20.13.0
 virtualenv-clone==0.5.7
 whitenoise==5.3.0
