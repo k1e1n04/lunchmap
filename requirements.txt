@@ -2,6 +2,7 @@ certifi==2021.10.8
 distlib==0.3.4
 django-environ==0.8.1
 filelock==3.4.2
+gunicorn==20.1.0
 pipenv==2022.1.8
 platformdirs==2.4.1
 six==1.16.0
