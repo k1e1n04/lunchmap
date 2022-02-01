@@ -3,3 +3,4 @@ db.sqlite3
 heroku_env
 .DS_Store
 local_settings.py
+.env
