@@ -157,12 +157,12 @@ db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES['default'].update(db_from_env)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
