@@ -26,7 +26,7 @@
           {% for field in form %}
             <div class="form-group">
               <label for="{{ field.id_for_label }}"><b>{{ field.label_tag }}</b></label>
-              <div>
+              <div class="form">
                 {{ field }}
                 {{ field.errors }}
               </div>

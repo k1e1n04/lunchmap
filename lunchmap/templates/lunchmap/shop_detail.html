@@ -141,7 +141,9 @@
                       {% endif %}
                     </span>
                   </p>
-                  <a href="{% url 'lunchmap:review_delete' shop_review.id %}">削除</a>
+                  {% if request.user.id == shop_review.user_id %}
+                    <a href="{% url 'lunchmap:review_delete' shop_review.id %}">削除</a>
+                  {% endif %}
                 </div>
               {% endfor %}
             </div>
