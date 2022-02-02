@@ -22,7 +22,17 @@
           {% csrf_token %}
           <input type='hidden' name='next' value='{{ next }}'/>
           <br>
-          {{form.as_p}}
+          {{ form.non_field_errors }}
+          {% for field in form %}
+            <div class="form-group">
+              <label for="{{ field.id_for_label }}"><b>{{ field.label_tag }}</b></label>
+              <div>
+                {{ field }}
+                {{ field.errors }}
+              </div>
+            </div>
+          {% endfor %}
+          {% csrf_token %}
           <button type='submit' class="btn btn-primary btn-lg btn-block col-4">ログイン
           </button>
       </form>
