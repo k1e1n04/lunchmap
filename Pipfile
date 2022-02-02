@@ -8,6 +8,7 @@ gunicorn = "*"
 django-heroku = "*"
 bootstrap4 = "*"
 tcl = "*"
+matplotlib = "*"
 
 [dev-packages]
 
