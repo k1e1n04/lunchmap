@@ -5,6 +5,7 @@ certifi==2021.10.8
 dj-database-url==0.5.0
 Django @ file:///tmp/build/80754af9/django_1625585912945/work
 django-bootstrap4==21.2
+django-environ==0.8.1
 django-heroku==0.3.1
 gunicorn==20.1.0
 mysqlclient==2.1.0
