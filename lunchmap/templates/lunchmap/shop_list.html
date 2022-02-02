@@ -8,7 +8,7 @@
 </form>
 <table class='table' style="background-color: white;margin-top: 20px;">
     <tr>
-        <th>カテゴリ</th><th>店名</th><th>おすすめメニュー</th><th>投稿者</th>
+        <th>カテゴリ</th><th>店名</th><th>おすすめメニュー</th><th>合宿のお昼</th>
     </tr>
     {% for shop in object_list %}
 
@@ -16,7 +16,7 @@
         <td>{{ shop.category.name }}</td>
         <td><a href='{% url "lunchmap:detail" shop.pk %}'>{{ shop.name }}</a></td>
         <td>{{ shop.favorite_menu }}</td>
-        <td>{{ shop.author.first_name }}</td>
+        <td>{{ shop.in_camp }}</td>
     </tr>
     {% endfor %}
     {% if user.is_authenticated %}
