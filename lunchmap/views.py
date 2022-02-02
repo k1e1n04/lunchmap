@@ -16,7 +16,7 @@ class IndexView(generic.ListView):
 
         if q_word:
             object_list = Shop.objects.filter(
-                Q(name__icontains=q_word) | Q(favorite_menu__icontains=q_word))
+                Q(name__icontains=q_word) | Q(favorite_menu__icontains=q_word)| Q(in_camp__icontains=q_word))
         else:
             object_list = Shop.objects.all()
         return object_list
