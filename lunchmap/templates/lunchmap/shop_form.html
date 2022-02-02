@@ -1,6 +1,6 @@
 {% extends '../layout.html' %}
 {% block content %}
-
+{% load bootstrap4 %}
 <h1>お店情報の{{ object|yesno:'更新,作成'}}</h1>
 
 <form action='' method='post'>{% csrf_token %}
