@@ -10,13 +10,13 @@
         {% if avg_rate == 5 %}
           ☆☆☆☆☆
         {% elif avg_rate == 4 %}
-          ☆☆☆☆
+          ☆☆☆☆<span style='color:lightgray;'>☆</span>
         {% elif avg_rate == 3 %}
-          ☆☆☆
+          ☆☆☆<span style='color:lightgray;'>☆☆</span>
         {% elif avg_rate == 2 %}
-          ☆☆
+          ☆☆<span style='color:lightgray;'>☆☆☆</span>
         {% elif avg_rate.score == 1 %}
-          ☆
+          ☆<span style='color:lightgray;'>☆☆☆☆</span>
         {% endif %}
       </span>
       {{avg_rate}}
@@ -27,13 +27,13 @@
         {% if avg_speed == 5 %}
           ☆☆☆☆☆
         {% elif avg_speed == 4 %}
-          ☆☆☆☆
+          ☆☆☆☆<span style='color:lightgray;'>☆</span>
         {% elif avg_speed == 3 %}
-          ☆☆☆
+          ☆☆☆<span style='color:lightgray;'>☆☆</span>
         {% elif avg_speed == 2 %}
-          ☆☆
+          ☆☆<span style='color:lightgray;'>☆☆☆</span>
         {% elif avg_speed.score == 1 %}
-          ☆
+          ☆<span style='color:lightgray;'>☆☆☆☆</span>
         {% endif %}
       </span>
       {{avg_speed}}
@@ -44,7 +44,7 @@
       height='320'
       frameborder='0'>
       </iframe>
-    <table class='table' rules="all" style="background-color: white;margin-top: 20px; border: 1px solid black;width: 80%;">
+    <table class='table' rules="all" style="background-color: white;margin-top: 20px; border: 1px solid lightgray;width: 80%;">
       <tr style="background-color: #F1F1F1;">
         <th>項目</th><th>内容</th>
       </tr>
@@ -115,13 +115,13 @@
                       {% if shop_review.score == 5 %}
                         ☆☆☆☆☆
                       {% elif shop_review.score == 4 %}
-                        ☆☆☆☆
+                        ☆☆☆☆<span style='color:lightgray;'>☆</span>
                       {% elif shop_review.score == 3 %}
-                        ☆☆☆
+                        ☆☆☆<span style='color:lightgray;'>☆☆</span>
                       {% elif shop_review.score == 2 %}
-                        ☆☆
+                        ☆☆<span style='color:lightgray;'>☆☆☆</span>
                       {% elif shop_review.score == 1 %}
-                        ☆☆☆
+                        ☆<span style='color:lightgray;'>☆☆☆☆</span>
                       {% endif %}
                     </span>
                   </p>
@@ -131,13 +131,13 @@
                       {% if shop_review.speed == 5 %}
                         ☆☆☆☆☆
                       {% elif shop_review.speed == 4 %}
-                        ☆☆☆☆
+                        ☆☆☆☆<span style='color:lightgray;'>☆</span>
                       {% elif shop_review.speed == 3 %}
-                        ☆☆☆
+                        ☆☆☆<span style='color:lightgray;'>☆☆</span>
                       {% elif shop_review.speed == 2 %}
-                        ☆☆
+                        ☆☆<span style='color:lightgray;'>☆☆☆</span>
                       {% elif shop_review.speed == 1 %}
-                        ☆☆☆
+                        ☆<span style='color:lightgray;'>☆☆☆☆</span>
                       {% endif %}
                     </span>
                   </p>
