@@ -19,8 +19,8 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('accounts.urls')),
     path('lunchmap/', include('lunchmap.urls')),
     path('',  RedirectView.as_view(url='/lunchmap/')),
 ]
