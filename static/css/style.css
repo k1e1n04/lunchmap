@@ -13,8 +13,12 @@ h1{
   font-weight: bold;
 }
 
+input{
+  width: 80%;
+}
+
 textarea{
-  width: 100%;
+  width: 80%;
 }
 
 table{
