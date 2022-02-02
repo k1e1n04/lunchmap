@@ -54,7 +54,7 @@ EMAIL_HOST_USER = 'info.geeknagoya@gmail.com'
 EMAIL_HOST_PASSWORD = 'geeknagoya1031'
 EMAIL_USE_TLS = True
 
-LOGIN_URL = 'accounts/login/'
+LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
@@ -81,6 +81,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins': [
+
+                'bootstrap4.templatetags.bootstrap4',   #追加
+
             ],
         },
     },
