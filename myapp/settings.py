@@ -50,8 +50,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'info.geeknagoya@gmail.com'
-EMAIL_HOST_PASSWORD = 'geeknagoya1031'
 EMAIL_USE_TLS = True
 
 LOGIN_URL = 'accounts:login'
@@ -179,4 +177,7 @@ if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
+    EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
+    EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+    DEFAULT_FROM_EMAIL = os.environ["DEFAULT_FROM_EMAIL"]
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
